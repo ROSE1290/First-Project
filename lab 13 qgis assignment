@@ -1,0 +1,273 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyPiW8M9d5dwDa/su/zunSyO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ROSE1290/First-Project/blob/main/lab%2013%20qgis%20assignment\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IkeYvv9BxYir",
+        "outputId": "f11c728c-39f5-490e-81d6-226129a9b722"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: folium in /usr/local/lib/python3.10/dist-packages (0.14.0)\n",
+            "Requirement already satisfied: branca>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from folium) (0.6.0)\n",
+            "Requirement already satisfied: jinja2>=2.9 in /usr/local/lib/python3.10/dist-packages (from folium) (3.1.2)\n",
+            "Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from folium) (1.23.5)\n",
+            "Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from folium) (2.31.0)\n",
+            "Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2>=2.9->folium) (2.1.3)\n",
+            "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->folium) (3.3.1)\n",
+            "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->folium) (3.4)\n",
+            "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->folium) (2.0.7)\n",
+            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->folium) (2023.7.22)\n"
+          ]
+        }
+      ],
+      "source": [
+        "pip install folium"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import folium"
+      ],
+      "metadata": {
+        "id": "ppcZZquxxjcQ"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_map = folium.Map(location = [28.5011226, 77.4099794], zoom_start = 12 )\n"
+      ],
+      "metadata": {
+        "id": "ODnn82qFx4tr"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_map\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 788
+        },
+        "id": "jkz_Jd_UyBhb",
+        "outputId": "1a3cc883-dbd5-4df6-88b6-ac119d980d42"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<folium.folium.Map at 0x7fc0a8ea6110>"
+            ],
+            "text/html": [
+              "<div style=\"width:100%;\"><div style=\"position:relative;width:100%;height:0;padding-bottom:60%;\"><span style=\"color:#565656\">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc=\"&lt;!DOCTYPE html&gt;\n",
+              "&lt;html&gt;\n",
+              "&lt;head&gt;\n",
+              "    \n",
+              "    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;\n",
+              "    \n",
+              "        &lt;script&gt;\n",
+              "            L_NO_TOUCH = false;\n",
+              "            L_DISABLE_3D = false;\n",
+              "        &lt;/script&gt;\n",
+              "    \n",
+              "    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;\n",
+              "    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;\n",
+              "    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;\n",
+              "    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;\n",
+              "    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;\n",
+              "    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;\n",
+              "    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;\n",
+              "    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;\n",
+              "    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;\n",
+              "    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;\n",
+              "    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;\n",
+              "    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;\n",
+              "    \n",
+              "            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,\n",
+              "                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;\n",
+              "            &lt;style&gt;\n",
+              "                #map_2fe9feb5f657bca7275725f7bca60f6a {\n",
+              "                    position: relative;\n",
+              "                    width: 100.0%;\n",
+              "                    height: 100.0%;\n",
+              "                    left: 0.0%;\n",
+              "                    top: 0.0%;\n",
+              "                }\n",
+              "                .leaflet-container { font-size: 1rem; }\n",
+              "            &lt;/style&gt;\n",
+              "        \n",
+              "&lt;/head&gt;\n",
+              "&lt;body&gt;\n",
+              "    \n",
+              "    \n",
+              "            &lt;div class=&quot;folium-map&quot; id=&quot;map_2fe9feb5f657bca7275725f7bca60f6a&quot; &gt;&lt;/div&gt;\n",
+              "        \n",
+              "&lt;/body&gt;\n",
+              "&lt;script&gt;\n",
+              "    \n",
+              "    \n",
+              "            var map_2fe9feb5f657bca7275725f7bca60f6a = L.map(\n",
+              "                &quot;map_2fe9feb5f657bca7275725f7bca60f6a&quot;,\n",
+              "                {\n",
+              "                    center: [28.5011226, 77.4099794],\n",
+              "                    crs: L.CRS.EPSG3857,\n",
+              "                    zoom: 12,\n",
+              "                    zoomControl: true,\n",
+              "                    preferCanvas: false,\n",
+              "                }\n",
+              "            );\n",
+              "\n",
+              "            \n",
+              "\n",
+              "        \n",
+              "    \n",
+              "            var tile_layer_2fe355477eabe3097a4fc1ab6694c4cd = L.tileLayer(\n",
+              "                &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,\n",
+              "                {&quot;attribution&quot;: &quot;Data by \\u0026copy; \\u003ca target=\\&quot;_blank\\&quot; href=\\&quot;http://openstreetmap.org\\&quot;\\u003eOpenStreetMap\\u003c/a\\u003e, under \\u003ca target=\\&quot;_blank\\&quot; href=\\&quot;http://www.openstreetmap.org/copyright\\&quot;\\u003eODbL\\u003c/a\\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}\n",
+              "            ).addTo(map_2fe9feb5f657bca7275725f7bca60f6a);\n",
+              "        \n",
+              "&lt;/script&gt;\n",
+              "&lt;/html&gt;\" style=\"position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;\" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "folium.Marker([28.5011226, 77.4099794], popup = ' My first map').add_to(my_map)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dIAJga-pyLrM",
+        "outputId": "55692e2b-81fa-4e82-ff81-86783c7e6443"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<folium.map.Marker at 0x7fc0a8ea42b0>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "folium.CircleMarker(location = [28.5011226, 77.4099794],radius = 50, popup = 'FRI ').add_to(my_map)\n",
+        "folium.LayerControl().add_to(my_map)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QAHiRkUxyX8C",
+        "outputId": "ac2d54a1-cc4d-46da-c887-bb13456fc217"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<folium.map.LayerControl at 0x7fc0a8ea6950>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "folium.TileLayer('Stamen Toner').add_to(my_map)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "p-qarodpyjJx",
+        "outputId": "14f0798d-111a-4146-d0c7-c7c2823cbcd0"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<folium.raster_layers.TileLayer at 0x7fc0a8ea4700>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_map.save(\"my_map.html\" )"
+      ],
+      "metadata": {
+        "id": "LfA1sXe2ykch"
+      },
+      "execution_count": 10,
+      "outputs": []
+    }
+  ]
+}
